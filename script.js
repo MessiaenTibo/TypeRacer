@@ -3,65 +3,23 @@ const paragraphs = [];
 // get random paragraphs from metaphorpsum.com
 const get_parapharaphs = function(amount)
 {
-    // // reset the paragraphs array
-    // paragraphs.length = 0;
-    // let url = `http://metaphorpsum.com/paragraphs/${amount}/9`;
-    // let request = new XMLHttpRequest();
-    // request.open('GET', url, false);
-    // request.send(null);
-    // if (request.status === 200) {
-    //     request.responseText;
-    //     // split the response into paragraphs on the enters
+    // reset the paragraphs array
+    paragraphs.length = 0;
+    let url = `http://metaphorpsum.com/paragraphs/${amount}/9`;
+    let request = new XMLHttpRequest();
+    request.open('GET', url, false);
+    request.send(null);
+    if (request.status === 200) {
+        request.responseText;
+        // split the response into paragraphs on the enters
 
-    //     let requestedParagraphs = request.responseText.split("\n");
-    //     requestedParagraphs.forEach(function(paragraph) {
-    //         if(paragraph == "") requestedParagraphs.splice(requestedParagraphs.indexOf(paragraph), 1);
-    //     });
-    //     paragraphs.push(...requestedParagraphs);
-    //     loadParagraphs();
-    // }
-
-
-    // paragraphs.length = 0;
-    // let url = `https://contentai-net-text-generation.p.rapidapi.com/text-generation/api/?category=health-and-medicine`;
-    // let request = new XMLHttpRequest();
-    // request.withCredentials = true;
-    // request.open('GET', url);
-    // request.setRequestHeader("X-RapidAPI-Key", "572d008a92msh3880290847c7511p106d6ajsn00d2693d12a8");
-    // request.setRequestHeader("X-RapidAPI-Host", "contentai-net-text-generation.p.rapidapi.com");
-    // request.send(null);
-    // if (request.status === 200) {
-    //     request.responseText;
-    //     console.log(request.responseText)
-    //     // split the response into paragraphs on the enters
-
-    //     let requestedParagraphs = request.responseText.split("\n");
-    //     requestedParagraphs.forEach(function(paragraph) {
-    //         if(paragraph == "") requestedParagraphs.splice(requestedParagraphs.indexOf(paragraph), 1);
-    //     });
-    //     paragraphs.push(...requestedParagraphs);
-    //     loadParagraphs();
-    // }
-
-
-    const data = null;
-
-    const xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-    
-    xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === this.DONE) {
-            console.log(this.responseText);
-        }
-    });
-    
-    xhr.open("GET", "https://montanaflynn-lorem-text-generator.p.rapidapi.com/paragraph?count=1&length=3");
-    xhr.setRequestHeader('Access-Control-Allow-Origin', "*");
-    xhr.setRequestHeader("X-RapidAPI-Key", "572d008a92msh3880290847c7511p106d6ajsn00d2693d12a8");
-    xhr.setRequestHeader("X-RapidAPI-Host", "montanaflynn-lorem-text-generator.p.rapidapi.com");
-    
-    xhr.send(data);
-
+        let requestedParagraphs = request.responseText.split("\n");
+        requestedParagraphs.forEach(function(paragraph) {
+            if(paragraph == "") requestedParagraphs.splice(requestedParagraphs.indexOf(paragraph), 1);
+        });
+        paragraphs.push(...requestedParagraphs);
+        loadParagraphs();
+    }
 }
 
 
