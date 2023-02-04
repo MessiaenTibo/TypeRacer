@@ -56,6 +56,7 @@ const get_parapharaphs = function(amount)
     });
     
     xhr.open("GET", "https://montanaflynn-lorem-text-generator.p.rapidapi.com/paragraph?count=1&length=3");
+    xhr.setRequestHeader('Access-Control-Allow-Origin', "*");
     xhr.setRequestHeader("X-RapidAPI-Key", "572d008a92msh3880290847c7511p106d6ajsn00d2693d12a8");
     xhr.setRequestHeader("X-RapidAPI-Host", "montanaflynn-lorem-text-generator.p.rapidapi.com");
     
