@@ -3,15 +3,17 @@ const paragraphs = [];
 // get random paragraphs from metaphorpsum.com
 const get_parapharaphs = function(amount)
 {
-    const url = `http://metaphorpsum.com/paragraphs/${amount}/9`;
-    const request = new XMLHttpRequest();
+    // reset the paragraphs array
+    paragraphs.length = 0;
+    let url = `http://metaphorpsum.com/paragraphs/${amount}/9`;
+    let request = new XMLHttpRequest();
     request.open('GET', url, false);
     request.send(null);
     if (request.status === 200) {
         request.responseText;
         // split the response into paragraphs on the enters
 
-        const requestedParagraphs = request.responseText.split("\n");
+        let requestedParagraphs = request.responseText.split("\n");
         requestedParagraphs.forEach(function(paragraph) {
             if(paragraph == "") requestedParagraphs.splice(requestedParagraphs.indexOf(paragraph), 1);
         });
@@ -35,7 +37,7 @@ let timeLeft = maxTime;
 let charIndex = mistakes = isTyping = 0;
 
 function loadParagraphs() {
-    let ranIndex = Math.floor(Math.random() * paragraphs.length);
+    console.log("load paragraphs")
     typingText.innerHTML = "";
     paragraphs.forEach(function(paragraph) {
         paragraph.split("").forEach(char => {
@@ -111,7 +113,7 @@ function initTimer() {
 }
 
 function resetGame() {
-    loadParagraph();
+    get_parapharaphs(4);
     clearInterval(timer);
     timeLeft = maxTime;
     charIndex = mistakes = isTyping = 0;
@@ -122,7 +124,7 @@ function resetGame() {
     cpmTag.innerText = 0;
 }
 
-get_parapharaphs(4);
+get_parapharaphs(2);
 inpField.addEventListener("input", initTyping);
 tryAgainBtn.addEventListener("click", resetGame);
 
