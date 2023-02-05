@@ -23,8 +23,6 @@ const paragraphs = [
 // get random paragraphs from metaphorpsum.com
 const get_parapharaphs = function(amount)
 {
-    // reset the paragraphs array
-    paragraphs.length = 0;
     try{
         let url = `http://metaphorpsum.com/paragraphs/${amount}/9`;
         let request = new XMLHttpRequest();
@@ -38,6 +36,8 @@ const get_parapharaphs = function(amount)
             requestedParagraphs.forEach(function(paragraph) {
                 if(paragraph == "") requestedParagraphs.splice(requestedParagraphs.indexOf(paragraph), 1);
             });
+            // reset the paragraphs array
+            paragraphs.length = 0;
             paragraphs.push(...requestedParagraphs);
         }
     }
