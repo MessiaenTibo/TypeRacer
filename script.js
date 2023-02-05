@@ -25,19 +25,24 @@ const get_parapharaphs = function(amount)
 {
     // reset the paragraphs array
     paragraphs.length = 0;
-    let url = `http://metaphorpsum.com/paragraphs/${amount}/9`;
-    let request = new XMLHttpRequest();
-    request.open('GET', url, false);
-    request.send(null);
-    if (request.status === 200) {
-        request.responseText;
-        // split the response into paragraphs on the enters
-
-        let requestedParagraphs = request.responseText.split("\n");
-        requestedParagraphs.forEach(function(paragraph) {
-            if(paragraph == "") requestedParagraphs.splice(requestedParagraphs.indexOf(paragraph), 1);
-        });
-        paragraphs.push(...requestedParagraphs);
+    try{
+        let url = `http://metaphorpsum.com/paragraphs/${amount}/9`;
+        let request = new XMLHttpRequest();
+        request.open('GET', url, false);
+        request.send(null);
+        if (request.status === 200) {
+            request.responseText;
+            // split the response into paragraphs on the enters
+    
+            let requestedParagraphs = request.responseText.split("\n");
+            requestedParagraphs.forEach(function(paragraph) {
+                if(paragraph == "") requestedParagraphs.splice(requestedParagraphs.indexOf(paragraph), 1);
+            });
+            paragraphs.push(...requestedParagraphs);
+        }
+    }
+    catch(e){
+        console.log(e);
     }
     loadParagraphs();
 }
